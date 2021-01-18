@@ -7,11 +7,13 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'playlist-updater',
+    title: 'Playlist Tools | Melody Melon',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Manage Your Spotify Playlists!' },
+      { name: 'robots', content: 'noindex' }
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -38,6 +40,15 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['faSync', 'faSignOutAlt', 'faHome']
+        }
+      ]
+    }],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

@@ -4,13 +4,16 @@
         <div class="userCon">
             <img :src="spotifyAuthData.accountData.images[0].url" class="userImg">
             <p class="userName">{{spotifyAuthData.accountData.display_name}}</p>
-
-            <img src="../../assets/images/userBackgroundImg.png" class="backgroundImg">
         </div>
         <!-- Navigation --> 
-        <nav class="navCon">
-            <nuxt-link class="navLink" to="/"><span class="linkIcon"></span>Playlist Refresh</nuxt-link>
-            <button class="navLink" v-on:click="$store.commit('logOut')"><span class="linkIcon"></span>Log Out</button>
+        <nav class="navCon"> 
+            <div class="navTop">
+                <nuxt-link class="navLink" to="/"><fa class="fas" :icon="['fas', 'sync']"/>Playlist Refresh</nuxt-link>
+            </div>
+            <div class="navBot">
+                <button class="navLink" v-on:click="$store.commit('logOut')"><fa class="fas" :icon="['fas', 'sign-out-alt']"/>Sign Out</button>
+                <p class="poweredByP">Powered By Melody Melon</p>
+            </div>
         </nav>
     </div>
 </template>
@@ -47,17 +50,7 @@ export default {
     overflow: hidden;
     padding: 10px;
     text-align: center;
-}
-.backgroundImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+    background-color: var(--background-1);
 }
 .userImg {
     height: 80px;
@@ -80,7 +73,18 @@ export default {
 .navCon {
     width: 100%;
     margin-top: 10px;
+    height: calc(100% - 135.8px);
+    display: flex;
+    flex-wrap: wrap;
 } 
+.navTop {
+    width: 100%;
+    align-self: flex-start;
+} 
+.navBot {
+    width: 100%;
+    align-self: flex-end;
+}
 .navLink {
     display: flex;
     width: 100%;
@@ -94,11 +98,14 @@ export default {
     cursor: pointer;
     margin-bottom: 5px;
 } 
-.linkIcon {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background-color: var(--accent-1);
+.fas {
+    font-size: 16px;
+    color: var(--accent-1);
     margin-right: 10px;
+}
+.poweredByP {
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--body-text);
 }
 </style>

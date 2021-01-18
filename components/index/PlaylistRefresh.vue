@@ -210,6 +210,8 @@ export default {
 
         // Reffresh Playlist
         refreshPlaylist() {
+            this.$store.dispatch('refreshTokens')
+            
             this.refreshingPlaylist = true
 
             let chunkedArray = this.chunkArray(99, this.trackIdArray)
